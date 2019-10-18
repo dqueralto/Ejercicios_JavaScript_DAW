@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+    <title>wsVT</title>
+</head>
+	<body>
+
+		<h1>Validar Numero de tarjeta</h1>
+		
+		<script type="text/javascript" src="wsVT.js" ></script> 
+
+		<form action="#">
+		<label for="visa">VISA: </label><input type="text" id="visa" size="20" value="4552-7204-1234-5678"/><span id="visa_ok" style="color: #008F39;"></span><span id="visa_error" style="color: #F00000;"></span></br>
+		<label for="mastercard">MasterCard: </label><input type="text" id="mastercard" size="20" value="5588-3201-2345-6789"/><span id="mastercard_ok" style="color: #008F39;"></span><span id="mastercard_error" style="color: #F00000;"></span>
+		<br>Utilizar guiones para separar los numeros. No se permiten espacios.<br>
+		<input type="button" onClick="validarTarjetas();" value="Validar Tarjetas">
+		</form>
+		
+		
+		
+	</body>
+</html>
