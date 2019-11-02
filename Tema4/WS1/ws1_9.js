@@ -1,24 +1,36 @@
 /** 
-9.Crea una página web que haciendo uso de eventos permita arrastrar una imagenhaciendo uso del ratón 
+9.Crea una página web que haciendo uso de eventos permita arrastrar una imagen haciendo uso del ratón 
 (al pulsar sobre la imagen la voy arrastrando hasta que sueltoel botón).
  */
 
+
+var estaPinchada = false;
+var offsetX, offsetY, x, y, imagen;
+var event = window.event;
+
 window.onload=()=>
 {
-    //var bt1 = document.getElementById('bt1');
-    //bt1.addEventListener('onclick',alerta(),false);
-    
-    window.onmousemove = function ()
-    {
-        x = window.event.clientX;
-        y = window.event.clientY;
-        this.moverimg(x,y);
-    }
+    document.getElementById("tarta").onclick = hacesClic;
+    document.getElementById("tarta").click = mover;
 
 }
 
-function moverimg(x,y) 
-{
-    document.getElementById('tarta')[0].style.left=this.String(x);
-    document.getElementById('tarta')[0].style.top=this.String(y);
+
+
+
+function hacesClic(event){
+    estaPinchada=!estaPinchada;
+    offsetX = x - event.target.hspace;
+    offsetY = y - event.target.vspace;
+    imagen = event.target;
+}
+
+function mover(event){
+    x = event.clientX;
+    y = event.clientY;
+
+    if(estaPinchada){
+        imagen.vspace = y - offsetY;
+        imagen.hspace = x - offsetX;
+    }
 }

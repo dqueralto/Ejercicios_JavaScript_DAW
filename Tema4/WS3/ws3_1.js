@@ -9,10 +9,11 @@ Conforme sale el foco de cada input, deberás validar el contenido de éste
 y mostrar información al usuario que le indique si está correcto o no.
  */
 
+
 window.onload=()=>
 {
-
-
+    var regNom = "/^{8}/$";
+    
 
 
 }

@@ -29,8 +29,9 @@ window.onload=()=>
     var y;
     window.onmousemove = function ()
     {
-        x = window.event.clientX;
-        y = window.event.clientY;
+
+
+
     }
 
     function alerta()
