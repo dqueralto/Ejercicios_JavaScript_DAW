@@ -20,47 +20,26 @@ En otro caso no deberá pintarse nada.
 
 10.Mejora el ejercicio anterior para que se pueda hacer en una página con un númerocualquiera de imágenes
  */
-/*
-window.onload=()=>
-{*/
-    //var bt1 = document.getElementById('bt1');
-    //bt1.addEventListener('onclick',alerta(),false);
-    var x;
-    var y;
-    window.onmousemove = function ()
+
+
+
+    window.onload = function()
     {
-
-
-
+        document.getElementById("bt").onclick = alerta;
     }
+
+
+
+
+
 
     function alerta()
     {
-        alert("Hola: "+x+" and "+y);
+        alert("Hola: esto es una alerta");
     }
 
-    function coordenadas()
-    {
-        document.getElementById('dv1').innerHTML("<p>X: "+x+" Y: "+y+"</p>");
-    }
-    window.onload=()=>{
-        tabla();
-    }
 
-    function tabla()
-    {
-        var ar = new Array();
-        for (let i = 0; i < 100; i++) 
-        {
-            ar = "<tr>";
-            for (let e = 0; e < 100; e++) 
-            {
-                ar = "<td></td>";
 
-            }
-            ar = "</tr>";
-        }
-        document.getElementById('tabla').innerHTML = ar.join("");
 
-    }
+
 //;
