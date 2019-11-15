@@ -44,7 +44,8 @@ function ganador(increment=0)
     }
 }
 function blockTable() 
-{/*
+{
+    /*
     let tabla = document.getElementById("tablero");
 
     for (let index = 0; index < tabla.rows.length; index++) {
