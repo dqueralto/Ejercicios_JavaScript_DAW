@@ -17,11 +17,8 @@ export class TresEnRaya
        this.tablero = new Array(3);
        for (let i = 0; i < this.tablero.length; i++) {
            this.tablero[i] = new Array(3);
-       }/*
-       for ( val of this.tablero) 
-       {
-           val = new Array(3);
-       }*/
+       }
+
        this.inicializarTablero();
   
        this.nMob = 0;
@@ -33,10 +30,10 @@ export class TresEnRaya
        this.x;
        this.y;
     }
-    
+
     inicializarTablero()
     {
-        console.log(this.tablero.length);
+
         for (let i = 0; i < this.tablero.length; i++) 
         {
             for (let x = 0; x < this.tablero.length; x++) {
@@ -50,7 +47,6 @@ export class TresEnRaya
     {
         let x = parseInt(cell.charAt(0));
         let y = parseInt(cell.charAt(1));
-        console.log("X: "+x+"Y: "+y);
     }
 
 
@@ -113,7 +109,7 @@ export class TresEnRaya
 
    comprobarVictori(increment=0)//comprobsamos que si alguna de filas/coumnas/diagonales cumplen las condiciones de victoria (3 iguales seguidas)
    {
-        var empate = false;
+       // var empate = false;
         
         console.log(this.nMob);
         /*
@@ -144,40 +140,56 @@ export class TresEnRaya
 
 
        
-       if (this.tablero[0][0] === this.tablero[0][1] && this.tablero[0][1] === this.tablero[0][2]) //comprobamos la primera fila
+       if (this.tablero[0][0] === this.tablero[0][1] && this.tablero[0][1] === this.tablero[0][2] /**/&&/**/this.tablero[0][0] != "" && this.tablero[0][1] != "" && this.tablero[0][2]  != ""  ) //comprobamos la primera fila
        {
+           console.log("c0");
             this.nMob+=increment;
            return this.tablero[0][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[1][0] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[1][2])//comprobamos la segunda fila
+       }else if (this.tablero[1][0] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[1][2]  /**/&&/**/this.tablero[1][0] != "" && this.tablero[1][1] != "" && this.tablero[1][2]  != "")//comprobamos la segunda fila
        {
+        console.log("c1");
+
             this.nMob+=increment;
            return this.tablero[1][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       } else if (this.tablero[2][0] === this.tablero[2][1] && this.tablero[2][1] === this.tablero[2][2]) //comprobamos la tercera fila
+       } else if (this.tablero[2][0] === this.tablero[2][1] && this.tablero[2][1] === this.tablero[2][2] /**/&&/**/this.tablero[2][0] != "" && this.tablero[2][1] != "" && this.tablero[2][2]  != "") //comprobamos la tercera fila
        {
+        console.log("c2");
+
             this.nMob+=increment;
            return this.tablero[2][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[0][0] === this.tablero[1][0] && this.tablero[1][0] === this.tablero[2][0])//comprobamos la primera columna
+       }else if (this.tablero[0][0] === this.tablero[1][0] && this.tablero[1][0] === this.tablero[2][0] /**/&&/**/this.tablero[0][0] != "" && this.tablero[1][0] != "" && this.tablero[2][0]  != "")//comprobamos la primera columna
        {
+        console.log("c3");
+
             this.nMob+=increment;
            return this.tablero[1][0];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[0][1] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][1])//comprobamos la segunda columna
+       }else if (this.tablero[0][1] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][1] /**/&&/**/this.tablero[0][1] != "" && this.tablero[1][1] != "" && this.tablero[2][1]  != "")//comprobamos la segunda columna
        {
+        console.log("c4");
+
             this.nMob+=increment;
            return this.tablero[1][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[0][2] === this.tablero[1][2] && this.tablero[1][2] === this.tablero[2][2])//comprobamos la tercera columna
+       }else if (this.tablero[0][2] === this.tablero[1][2] && this.tablero[1][2] === this.tablero[2][2] /**/&&/**/this.tablero[0][2] != "" && this.tablero[1][2] != "" && this.tablero[2][2]  != "")//comprobamos la tercera columna
        {
+        console.log("c5");
+
             this.nMob+=increment;
            return this.tablero[1][2];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[0][2] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][0])//comprobamos la primera diagonal
+       }else if (this.tablero[0][2] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][0]/**/&&/**/this.tablero[0][2] != "" && this.tablero[1][1] != "" && this.tablero[2][0]  != "")//comprobamos la primera diagonal
        {
+        console.log("c6");
+
             this.nMob+=increment;
            return this.tablero[1][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[0][0] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][2])//comprobamos la segunda diagonal
+       }else if (this.tablero[0][0] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][2] /**/&&/**/this.tablero[0][0] != "" && this.tablero[1][1] != "" && this.tablero[2][2]  != "")//comprobamos la segunda diagonal
        {
+        console.log("c7");
+
             this.nMob+=increment;
            return this.tablero[1][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
        }else if (this.nMob === 9) 
        {
+        console.log("c8");
            return "emp";//retornamos -1 si se produce un empate
        }
    }
@@ -234,6 +246,7 @@ export class TresEnRaya
 
    
 }
+
 
 
 
