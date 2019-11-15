@@ -114,7 +114,7 @@ export class TresEnRaya
    comprobarVictori(increment=0)//comprobsamos que si alguna de filas/coumnas/diagonales cumplen las condiciones de victoria (3 iguales seguidas)
    {
         var empate = false;
-        this.nMob+=increment;
+        
         console.log(this.nMob);
         /*
         if (this.nMob != 9) {
@@ -144,29 +144,37 @@ export class TresEnRaya
 
 
        
-       if (this.tablero[0][0] == this.tablero[0][1] && this.tablero[0][1] == this.tablero[0][2]) //comprobamos la primera fila
+       if (this.tablero[0][0] === this.tablero[0][1] && this.tablero[0][1] === this.tablero[0][2]) //comprobamos la primera fila
        {
+            this.nMob+=increment;
            return this.tablero[0][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[1][0] == this.tablero[1][1] && this.tablero[1][1] == this.tablero[1][2])//comprobamos la segunda fila
+       }else if (this.tablero[1][0] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[1][2])//comprobamos la segunda fila
        {
+            this.nMob+=increment;
            return this.tablero[1][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       } else if (this.tablero[2][0] == this.tablero[2][1] && this.tablero[2][1] == this.tablero[2][2]) //comprobamos la tercera fila
+       } else if (this.tablero[2][0] === this.tablero[2][1] && this.tablero[2][1] === this.tablero[2][2]) //comprobamos la tercera fila
        {
+            this.nMob+=increment;
            return this.tablero[2][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[0][0] == this.tablero[1][0] && this.tablero[1][0] == this.tablero[2][0])//comprobamos la primera columna
+       }else if (this.tablero[0][0] === this.tablero[1][0] && this.tablero[1][0] === this.tablero[2][0])//comprobamos la primera columna
        {
+            this.nMob+=increment;
            return this.tablero[1][0];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[0][1] == this.tablero[1][1] && this.tablero[1][1] == this.tablero[2][1])//comprobamos la segunda columna
+       }else if (this.tablero[0][1] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][1])//comprobamos la segunda columna
        {
+            this.nMob+=increment;
            return this.tablero[1][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[0][2] == this.tablero[1][2] && this.tablero[1][2] == this.tablero[2][2])//comprobamos la tercera columna
+       }else if (this.tablero[0][2] === this.tablero[1][2] && this.tablero[1][2] === this.tablero[2][2])//comprobamos la tercera columna
        {
+            this.nMob+=increment;
            return this.tablero[1][2];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[0][2] == this.tablero[1][1] && this.tablero[1][1] == this.tablero[2][0])//comprobamos la primera diagonal
+       }else if (this.tablero[0][2] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][0])//comprobamos la primera diagonal
        {
+            this.nMob+=increment;
            return this.tablero[1][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
-       }else if (this.tablero[0][0] == this.tablero[1][1] && this.tablero[1][1] == this.tablero[0][2])//comprobamos la segunda diagonal
+       }else if (this.tablero[0][0] === this.tablero[1][1] && this.tablero[1][1] === this.tablero[2][2])//comprobamos la segunda diagonal
        {
+            this.nMob+=increment;
            return this.tablero[1][1];//retornamos el contenido de la ubicacion central como ganador de darse este caso
        }else if (this.nMob === 9) 
        {
@@ -184,7 +192,7 @@ export class TresEnRaya
            return false; //si el contenido de la posicion es "x" retornamos false
        }else if (contenido == "")
        {
-           return -1; //si el contenido esta vacio retornamos -1
+           return ""; //si el contenido esta vacio retornamos -1
        }
    }
 

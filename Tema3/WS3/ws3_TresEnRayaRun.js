@@ -6,7 +6,7 @@ var tresRayas = new TresEnRaya();
 window.onload=()=>{
     var ub = document.getElementById("juego");
     gentabla(3,3,ub,120,120);
-    blockTable();
+    //blockTable();
 }
 
 function dibujarFicha(fich,idCelda) 
@@ -30,12 +30,15 @@ function ganador(increment=0)
 
     switch (gana) {
         case "X":
+            blockTable();
             alert("Victoria para X");
             break;
         case "O":
+            blockTable();
             alert("Victoria para O");
         break;
         case "emp":
+            blockTable();
             alert("¡¡¡EMPATE!!!");    
         break;
         default:
@@ -45,23 +48,11 @@ function ganador(increment=0)
 }
 function blockTable() 
 {
-    /*
-    let tabla = document.getElementById("tablero");
-
-    for (let index = 0; index < tabla.rows.length; index++) {
-        console.log(tabla.rows[index]);
-        //tabla.rows[index].style.pointerEvents = "auto";
-    }
-*/
-    let tab = document.getElementById('tablero');
-    for(let i=0; ele = tab.getElementsByTagName('tr')[i]; i++)
+    for(let i = 0 ; i < 9; i++)
     {
-        ele.disabled = true;
+        let td  = document.getElementsByTagName("td")[i];
+        td.style.pointerEvents = "none";
     }
-   
-        
-    //rows..style.pointerEvents = "auto";
-    
 }
 
 function gentabla(f,c,ub,wc,hc) {
@@ -117,7 +108,6 @@ function gentabla(f,c,ub,wc,hc) {
     tabla.setAttribute("cellspacing","1");
     tabla.setAttribute("id","tablero");
     
-    tabla.rows.length
     
 }
 
