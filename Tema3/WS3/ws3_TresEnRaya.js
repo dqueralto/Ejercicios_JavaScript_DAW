@@ -34,7 +34,8 @@ export class TresEnRaya
        this.y;
     }
     
-    inicializarTablero(){
+    inicializarTablero()
+    {
         console.log(this.tablero.length);
         for (let i = 0; i < this.tablero.length; i++) 
         {
@@ -44,7 +45,7 @@ export class TresEnRaya
             }
         }
     }
-    //obtenerVariables(evento,ths,x,y)
+
     obtenerPosicion(cell)
     {
         let x = parseInt(cell.charAt(0));
@@ -52,7 +53,7 @@ export class TresEnRaya
         console.log("X: "+x+"Y: "+y);
     }
 
-    //jugada(event,ths,x,y)
+
     jugada(cell,ths)
     {
         let x = parseInt(cell.charAt(0));
@@ -186,47 +187,6 @@ export class TresEnRaya
            return -1; //si el contenido esta vacio retornamos -1
        }
    }
-    /*
-   gentabla(f,c,ub,wc,hc) {
-    // Obtener la referencia del elemento body
-    //var body = document.getElementsByTagName("body")[0];
-
-    // Crea un elemento <table> y un elemento <tbody>
-    var tabla   = document.createElement("table");
-    var tblBody = document.createElement("tbody");
-    
-    // Crea las celdas
-    for (var i = 0; i < f; i++) {
-        // Crea las hileras de la tabla
-        var hilera = document.createElement("tr");
-   
-        for (var j = 0; j < c; j++) {
-            // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-            // texto sea el contenido de <td>, ubica el elemento <td> al final
-            // de la hilera de la tabla
-            var celda = document.createElement("td");
-            //Indicamos el texto de la celda
-            var textoCelda = document.createTextNode(" ");
-            celda.setAttribute("onclick","tresRayas.jugada(event,this,"+i+","+j+")")
-            celda.appendChild(textoCelda);
-            celda.setAttribute("width",wc);
-            celda.setAttribute("height",hc);
-            hilera.appendChild(celda);
-        }
-   
-        // agrega la hilera al final de la tabla (al final del elemento tblbody)
-        tblBody.appendChild(hilera);
-    }
-   
-    // posiciona el <tbody> debajo del elemento <table>
-    tabla.appendChild(tblBody);
-    // appends <table> into <body>
-    ub.appendChild(tabla);
-    // modifica el atributo "border" de la tabla y lo fija a "0";
-    tabla.setAttribute("border", "1");
-    
-    tabla.setAttribute("cellspacing","1");
-    }*/
 
 
    ia()
@@ -264,23 +224,6 @@ export class TresEnRaya
        }
    }
 
-
-
-
-   mensajes(mensaje="Ganana "+ganador.toUperCase(),ganador)//funcion de comprobación
-   {
-       ganador=ganador.toUperCase(); 
-       if (ganador == "O") //si el contenido de la posicion es "o" retornamos true
-       {
-           return mensaje+ganador; 
-       }else if (ganador == "X") //si el contenido de la posicion es "x" retornamos true
-       {
-           return mensaje+ganador; 
-       }else if (ganador == "")
-       {
-           return "¡¡¡EMPATE!!!"; //si el contenido esta vacio retornamos un mensaje de empate (luego se adaptara a la interfaz grafica)
-       }
-   }
    
 }
 
