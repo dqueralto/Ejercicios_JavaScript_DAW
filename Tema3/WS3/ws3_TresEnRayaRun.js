@@ -53,7 +53,8 @@ function blockTable()
     }
 */
     let tab = document.getElementById('tablero');
-    for(let i=0; ele = tab.getElementsByTagName('tr')[i]; i++){
+    for(let i=0; ele = tab.getElementsByTagName('tr')[i]; i++)
+    {
         ele.disabled = true;
     }
    
