@@ -1,4 +1,5 @@
 import {Bola}  from './Bola.js';
+import {Palo}  from './Palo.js';
 
 
 
@@ -6,38 +7,35 @@ import {Bola}  from './Bola.js';
 
 
 window.onload = function() {
-    var conten = document.getElementById("conten");
-    var bola = new Bola(conten,"contenedor","circulo",60,80,50,"black",1,"silver");
+    var limiteVentanaH = contenedor.clientWidth;
+    var limiteVentanaV = contenedor.clientHeight;
+
+    var bola = new Bola("contenedor","circulo",limiteVentanaH/2,limiteVentanaV/2,50,"black",1,"silver");
+    
+    var pj1 = new Palo("contenedor","palo1",100,100,30,120,"red",10 );
+    var pj2 = new Palo("contenedor","palo2",limiteVentanaH-100,limiteVentanaH-100,30,120,"blue",10 );
 
     var direccionH = true;
     var direccionV = true;
 
     setInterval(function(){ 
-        var contenedor = document.getElementById("contenedor");
-        //var bola = document.getElementById("circulo");
-
-        //var intCX = parseInt(bola.getAttribute('cx'));
-        //var r = parseInt(bola.getAttribute('r'));
 
         var intCX = bola.retCX();
+        var intCY = bola.retCY();
         var r = bola.retCR();
-        var limiteVentanaH = contenedor.clientWidth;
-        var limiteVentanaV = contenedor.clientHeight;
-        console.log("cx: "+intCX);
-        console.log("lv: "+limiteVentanaH);
 
 
         if(direccionH)
         {
             bola.moverBolaDerecha(3);
-            if(bola.retCX() + bola.retCR() >= limiteVentanaH  )
+            if(intCX + r >= limiteVentanaH  )
             {
                 direccionH = false;
             }
             
         }else{
             bola.moverBolaIzquierda(3);
-            if(bola.retCX() - bola.retCR() <= 0 )
+            if(intCX - r <= 0 )
             {
                 direccionH = true;
             }
@@ -45,13 +43,13 @@ window.onload = function() {
 
         if (direccionV) {
             bola.moverBolaAbajo(3);
-            if( bola.retCY() + bola.retCR() >= limiteVentanaV)
+            if( intCY + r >= limiteVentanaV)
             {
                 direccionV = false;
             }
         } else {
             bola.moverBolaArriba(3);
-            if( bola.retCY() - bola.retCR() <= 0)
+            if( intCY - r <= 0)
             {
                 direccionV = true;
             }
