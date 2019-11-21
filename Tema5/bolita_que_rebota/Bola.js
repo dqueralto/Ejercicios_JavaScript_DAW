@@ -1,8 +1,8 @@
 export class Bola{
-    constructor(idsvg="contenedor",idc="circulo",cx=60,cy=80,r=25,stroke="black",strokeWidth=1,fill="silver")
+    constructor(idsvg="contenedor",idc="circulo",cx=60,cy=80,r=25,stroke="black",strokeWidth=1,fill="silver")//Constructor que solicita el id del contenedor donde se ubicara, un id para nuestro objeto, coordenada cx, cy, color del borde, ancho del borde y color de fondo.
     {
-        this.contenedor = document.getElementById(idsvg);
-        this.bola = document.createElementNS("http://www.w3.org/2000/svg","circle");
+        this.contenedor = document.getElementById(idsvg);//Obtencion del objeto que contendra nuestra "barra" (casi siempre sera un SVG)
+        this.bola = document.createElementNS("http://www.w3.org/2000/svg","circle");//creacion del objeto "circle" con SVG.
 
         this.bola.setAttribute("id",idc);//Asignacion inicial del ID del objeto "circle".
 
@@ -21,56 +21,35 @@ export class Bola{
 
     }
 
-    moverBolaDerecha(velocidad=1)//Funcion que incrementando el valor numerico de la coordenada X del objeto  "circle" lo desplaza hacia la derecha.
+    moverBolaDerecha(velocidad=1)//Funcion que incrementando el valor numerico de la coordenada "X" del objeto  "circle", lo desplaza hacia la derecha.
     {
-        var cx = parseInt(this.bola.getAttribute('cx'));
-        this.bola.setAttribute('cx', cx + velocidad);
+        var cx = parseInt(this.bola.getAttribute('cx'));//Obtencion de la coordenada "X" actual del objeto  "circle".
+        this.bola.setAttribute('cx', cx + velocidad);//Incrementacion e implementacion de la coordenada "X" del objeto  "circle".
     }
 
-    moverBolaIzquierda(velocidad=1)//Funcion que decrementando el valor numerico de la coordenada X del objeto  "circle" lo desplaza hacia la izquierda.
+    moverBolaIzquierda(velocidad=1)//Funcion que decrementando el valor numerico de la coordenada "X" del objeto  "circle", lo desplaza hacia la izquierda.
     {
-        var cx = parseInt(this.bola.getAttribute('cx'));
-        this.bola.setAttribute('cx', cx - velocidad);
+        var cx = parseInt(this.bola.getAttribute('cx'));//Obtencion de la coordenada "X" actual del objeto  "circle".
+        this.bola.setAttribute('cx', cx - velocidad);//Decrementacion e implementacion de la coordenada "X" del objeto  "circle".
     }
 
-    moverBolaArriba(velocidad=1)//Funcion que incrementando el valor numerico de la coordenada Y del objeto  "circle" lo desplaza hacia arriba.
+    moverBolaArriba(velocidad=1)//Funcion que incrementando el valor numerico de la coordenada "Y" del objeto  "circle", lo desplaza hacia arriba.
     {
-        var cy = parseInt(this.bola.getAttribute('cy'));
-        this.bola.setAttribute('cy', cy - velocidad);
+        var cy = parseInt(this.bola.getAttribute('cy'));//Obtencion de la coordenada "Y" actual del objeto  "circle".
+        this.bola.setAttribute('cy', cy - velocidad);//Decrementacion e implementacion de la coordenada "Y" del objeto  "circle".
     }
 
-    moverBolaAbajo(velocidad=1)//Funcion que incrementando el valor numerico de la coordenada X del objeto  "circle" lo desplaza hacia derabajo.
+    moverBolaAbajo(velocidad=1)//Funcion que incrementando el valor numerico de la coordenada "Y" del objeto  "circle", lo desplaza hacia abajo.
     {
-        var cy = parseInt(this.bola.getAttribute('cy'));
-        this.bola.setAttribute('cy', cy + velocidad);
+        var cy = parseInt(this.bola.getAttribute('cy'));//Obtencion de la coordenada "Y" actual del objeto  "circle".
+        this.bola.setAttribute('cy', cy + velocidad);//Incrementacion e implementacion de la coordenada "Y" del objeto  "circle".
     }
 
-    retCX(){return parseInt(this.bola.getAttribute('cx'));}//Funcion que retorna la coordenada X del objeto "circle".
+    retCX(){return parseInt(this.bola.getAttribute('cx'));}//Funcion que retorna la coordenada "X" del objeto "circle".
 
-    retCY(){return parseInt(this.bola.getAttribute('cy'));}//Funcion que retorna la coordenada Y del objeto "circle".
+    retCY(){return parseInt(this.bola.getAttribute('cy'));}//Funcion que retorna la coordenada "Y" del objeto "circle".
 
-    retCR(){return parseInt(this.bola.getAttribute('r'));}//Funcion que retorna el Radio del objeto "circle".
+    retCR(){return parseInt(this.bola.getAttribute('r'));}//Funcion que retorna el "Radio" del objeto "circle".
    
 
 }
-
-
-/*
-function crearBola(ub,idsvg="contenedor",idc="circulo",cx=60,cy=80,r=25,stroke="black",strokeWidth=1,fill="silver")
-{
-    var contenedor = document.createElement("svg");
-    var bola = document.createElement("circle");
-
-    bola.setAttribute("id",idc);
-    bola.setAttribute("cx",cx);
-    bola.setAttribute("cy",cy);
-    bola.setAttribute("r",r);
-    bola.setAttribute("stroke",stroke);
-    bola.setAttribute("stroke-width",strokeWidth);
-    bola.setAttribute("fill",fill);
-
-    contenedor.appendChild(bola);
-    contenedor.setAttribute("id",idsvg);
-
-    ub.appendChild(contenedor);
-}*/
