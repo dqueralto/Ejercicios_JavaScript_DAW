@@ -195,7 +195,7 @@ function gentabla(f,c,ub,wc,hc) {
 window.onload=()=>{
     removeCookie();
     var ub = document.getElementById("juego");
-    checkCookie();
+    //checkCookie();
     gentabla(3,3,ub,120,120);
 
 }

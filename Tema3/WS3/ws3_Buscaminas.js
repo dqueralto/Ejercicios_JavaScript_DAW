@@ -69,8 +69,7 @@ Debe controlarse un tiempo l mite para resolver el juego.
  }
 
 
- b =  new Buscaminas();
- b.imprimirTablero();
+
 
 
 
