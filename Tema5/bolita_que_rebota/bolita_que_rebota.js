@@ -17,14 +17,15 @@ window.onload = function() {
     var pj1 = new Barra("contenedor","palo1",100,100,30,120,"red",10 );
     var pj2 = new Barra("contenedor","palo2",limiteVentanaH-100,limiteVentanaH-100,30,120,"blue",10 );
 
-    var direccionH = true;
-    var direccionV = true;
-
     setInterval(function(){ 
 
+        bola.controlImpactoTotal(limiteVentanaH,limiteVentanaV,1);
+        bola2.controlImpactoTotal(limiteVentanaH,limiteVentanaV,5);
+        bola3.controlImpactoTotal(limiteVentanaH,limiteVentanaV,9);
+        /*
         var intCX = bola.retCX();
         var intCY = bola.retCY();
-        var r = bola.retCR();
+        var r = bola.retR();
         var velocidad = 7;
 
         if(direccionH)
@@ -64,7 +65,7 @@ window.onload = function() {
                 direccionV = true;
             }
         }
-
+        */
         
     },10);
 };
