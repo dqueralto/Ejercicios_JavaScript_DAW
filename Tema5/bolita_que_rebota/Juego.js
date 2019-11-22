@@ -64,7 +64,7 @@ export class Juego{
         { 
             this.bola.controlImpactoTotal(this.limiteVentanaH,this.limiteVentanaV,4);
 
-            if (this.movimpj1 ) 
+            if (this.movimpj1) 
             {
                 if (this.pj1.retY1() >= 0 ) 
                 {
