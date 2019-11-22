@@ -1,64 +1,106 @@
 import {Bola}  from './Bola.js';
 import {Barra}  from './Barra.js';
+
 export class Juego{
     
     constructor(){
+        
         this.limiteVentanaH = contenedor.clientWidth;
         this.limiteVentanaV = contenedor.clientHeight;
 
         this.direccionH = true;
         this.direccionV = true;
 
-        this.bola = new Bola("contenedor","circulo",limiteVentanaH/2,limiteVentanaV/2,50,"black",1,"silver");
-    
-        this.pj1 = new Palo("contenedor","pj1",100,100,30,120,"red",10 );
-        this.pj2 = new Palo("contenedor","pj2",limiteVentanaH-100,limiteVentanaH-100,30,120,"blue",10 );
+        this.movimpj1 = true;
+        this.movimpj2 = true;
+
+
+        this.creacionDeObjetos();
+        this.iniciar();
+
+
 
     }
+
+    controlMovimiento(e)
+    {
+        
+        if (e.keyCode == 87) 
+        {
+            this.movimpj1 = true;
+            console.log("w");
+        } else if (e.keyCode == 83)
+        {
+            this.movimpj1 = false;
+            console.log("s");
+        }
+        
+        if (e.keyCode == 38)
+        {
+            this.movimpj2 = true;
+            console.log('¡');
+        }else if (e.keyCode == 40)
+        {
+            this.movimpj2 = false;
+            console.log("!");
+        }
+
+    }
+
+
 
     creacionDeObjetos()
     {
-        this.bola = new Bola("contenedor","circulo",limiteVentanaH/2,limiteVentanaV/2,50,"black",1,"silver");
-    
-        this.pj1 = new Palo("contenedor","pj1",100,100,30,120,"red",10 );
-        this.pj2 = new Palo("contenedor","pj2",limiteVentanaH-100,limiteVentanaH-100,30,120,"blue",10 );
+        this.bola = new Bola("contenedor","circulo",this.limiteVentanaH/2,this.limiteVentanaV/2,50,"black",1,"silver");
+
+        this.pj1 = new Barra("contenedor","pj1",100,100,0,300,"red",10 );
+        this.pj2 = new Barra("contenedor","pj2",this.limiteVentanaH-100,this.limiteVentanaH-100,0,300,"blue",10 );
     }
 
-    colisionHorizontal(intCX,r)
+    iniciar()
     {
-        if(this.direccionH)
-        {
-            this.bola.moverBolaDerecha(3);
-            if(intCX + r >= this.limiteVentanaH  )
+        document.addEventListener("keydown",(e) => {this.controlMovimiento(e,this.limiteVentanaV,this.limiteVentanaH)});
+        setInterval(() =>
+        { 
+            this.bola.controlImpactoTotal(this.limiteVentanaH,this.limiteVentanaV,4);
+
+            if (this.movimpj1 ) 
             {
-                this.direccionH = false;
+                if (this.pj1.retY1() >= 0 ) 
+                {
+                    this.pj1.moverBarraArriba(10);          
+                }
+
+            } else if(!this.movimpj1){
+
+                if (this.pj1.retY2()<=this.limiteVentanaV) 
+                {
+                    this.pj1.moverBarraAbajo(10);
+                }
             }
-            
-        }else{
-            this.bola.moverBolaIzquierda(3);
-            if(intCX - r <= 0 )
+
+
+            if (this.movimpj2 ) 
             {
-                this.direccionH = true;
+                if (this.pj2.retY1() >= 0 ) 
+                {
+                    this.pj2.moverBarraArriba(10);          
+                }
+
+            } else if(!this.movimpj2){
+
+                if (this.pj2.retY2()<=this.limiteVentanaV) 
+                {
+                    this.pj2.moverBarraAbajo(10);
+                }
             }
-        }
+
+
+
+        },10);
     }
 
-    colisionVertical(intCY,r)
-    {
-        if (this.direccionV) {
-            this.bola.moverBolaAbajo(3);
-            if( intCY + r >= this.limiteVentanaV)
-            {
-                this.direccionV = false;
-            }
-        } else {
-            this.bola.moverBolaArriba(3);
-            if( intCY - r <= 0)
-            {
-                this.direccionV = true;
-            }
-        }
-    }
+
 
 
 }

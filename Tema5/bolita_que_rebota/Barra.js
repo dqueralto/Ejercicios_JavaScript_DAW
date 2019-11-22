@@ -16,9 +16,15 @@ export class Barra{
         this.barra.setAttribute("stroke-width",strokeWidth);//Asignacion inicial del grosor del borde del objeto "line".
 
         this.contenedor.appendChild(this.barra);//Inclusion del objeto "line" en el contenedor "SVG"
+
+        this.direccionH = true;
+        this.direccionV = true;
+        this.movimbar =true;
+
+
     }
 
-    moverbarraDerecha(velocidad=1)//Funcion que incrementando el valor numerico de la coordenadas de inicio y finalizacion "X" del objeto  "line", lo desplaza hacia la derecha.
+    moverBarraDerecha(velocidad=1)//Funcion que incrementando el valor numerico de la coordenadas de inicio y finalizacion "X" del objeto  "line", lo desplaza hacia la derecha.
     {
         var x1 = parseInt(this.barra.getAttribute('x1'));//Obtencion de la coordenada de inicio "X" actual del objeto "line".
         var x2 = parseInt(this.barra.getAttribute('x2'));//Obtencion de la coordenada de finalizacion "X" actual del objeto "line".
@@ -27,7 +33,7 @@ export class Barra{
         this.barra.setAttribute('x2', x2 + velocidad);//Incrementacion e implementacion de la coordenada de finalizacion "X" del objeto "line".
     }
 
-    moverbarraIzquierda(velocidad=1)//Funcion que decrementando el valor numerico de la coordenadas de inicio y finalizacion "X" del objeto "line", lo desplaza hacia la derecha.
+    moverBarraIzquierda(velocidad=1)//Funcion que decrementando el valor numerico de la coordenadas de inicio y finalizacion "X" del objeto "line", lo desplaza hacia la derecha.
     {
         var x1 = parseInt(this.barra.getAttribute('x1'));//Obtencion de la coordenada de inicio "X" actual del objeto "line".
         var x2 = parseInt(this.barra.getAttribute('x2'));//Obtencion de la coordenada de finalizacion "X" actual del objeto "line".
@@ -36,7 +42,7 @@ export class Barra{
         this.barra.setAttribute('x2', x2 - velocidad);//Decrementacion e implementacion de la coordenada de finalizacion "X" del objeto "line".
     }
 
-    moverbarraArriba(velocidad=1)//Funcion que incrementando el valor numerico de la coordenadas de inicio y finalizacion "Y" del objeto "line", lo desplaza hacia la arriba.
+    moverBarraArriba(velocidad=1)//Funcion que incrementando el valor numerico de la coordenadas de inicio y finalizacion "Y" del objeto "line", lo desplaza hacia la arriba.
     {
         var y1 = parseInt(this.barra.getAttribute('y1'));//Obtencion de la coordenada de inicio "Y" actual del objeto "line".
         var y2 = parseInt(this.barra.getAttribute('y2'));//Obtencion de la coordenada de finalizacion "Y" actual del objeto "line".
@@ -45,7 +51,7 @@ export class Barra{
         this.barra.setAttribute('y2', y2 - velocidad);//Decrementacion e implementacion de la coordenada de finalizacion "Y" del objeto "line".
     }
 
-    moverbarraAbajo(velocidad=1)//Funcion que decrementando el valor numerico de la coordenadas de inicio y finalizacion "Y" del objeto "line", lo desplaza hacia abajo.
+    moverBarraAbajo(velocidad=1)//Funcion que decrementando el valor numerico de la coordenadas de inicio y finalizacion "Y" del objeto "line", lo desplaza hacia abajo.
     {
         var y1 = parseInt(this.barra.getAttribute('y1'));//Obtencion de la coordenada de inicio "Y" actual del objeto "line".
         var y2 = parseInt(this.barra.getAttribute('y2'));//Obtencion de la coordenada de finalizacion "Y" actual del objeto "line".
@@ -60,5 +66,27 @@ export class Barra{
 
     retY1(){return parseInt(this.barra.getAttribute('y1'));}//Funcion que retorna la coordenada de inicio "Y" del objeto "line".
 
-    retY2(){return parseInt(this.barra.getAttribute('y2'));}//Funcion que retorna la coordenada de finalizacion "X" del objeto "line".   
+    retY2(){return parseInt(this.barra.getAttribute('y2'));}//Funcion que retorna la coordenada de finalizacion "Y" del objeto "line".   
+
+    controlImpactoVertical(velocidad=1,limiteVentanaV=0,intY1=this.retY1(),intY2=this.retY2())//Funcion que pasando la altura del contenedor, velocidad de incremento, la coordenada "Y" y el radio del objeto hace que este rebote contra la parte superior e inferior del contenedor.
+    {
+
+        if (this.direccionV) {
+            //this.moverBarraArriba(velocidad);
+            if( intY2 >= limiteVentanaV )
+            {
+                  this.direccionV = false;
+                  return false;
+            }
+        }else{
+            //this.moverBarraAbajo(velocidad);
+            if( intY1  <= 0 )
+            {
+                this.direccionV = true;
+                return true;
+            }
+        }
+
+
+    }
 }
