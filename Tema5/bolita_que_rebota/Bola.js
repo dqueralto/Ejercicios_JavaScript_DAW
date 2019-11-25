@@ -96,4 +96,11 @@ export class Bola{
         this.controlImpactoVertical(limiteVentanaV,velocidad,intCY,r);
 
     }
+
+
+    controlImpactoObstaculo(limiteVentanaH,limiteVentanaV)
+    {
+
+
+    }
 }

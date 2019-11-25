@@ -68,25 +68,5 @@ export class Barra{
 
     retY2(){return parseInt(this.barra.getAttribute('y2'));}//Funcion que retorna la coordenada de finalizacion "Y" del objeto "line".   
 
-    controlImpactoVertical(velocidad=1,limiteVentanaV=0,intY1=this.retY1(),intY2=this.retY2())//Funcion que pasando la altura del contenedor, velocidad de incremento, la coordenada "Y" y el radio del objeto hace que este rebote contra la parte superior e inferior del contenedor.
-    {
 
-        if (this.direccionV) {
-            //this.moverBarraArriba(velocidad);
-            if( intY2 >= limiteVentanaV )
-            {
-                  this.direccionV = false;
-                  return false;
-            }
-        }else{
-            //this.moverBarraAbajo(velocidad);
-            if( intY1  <= 0 )
-            {
-                this.direccionV = true;
-                return true;
-            }
-        }
-
-
-    }
 }
