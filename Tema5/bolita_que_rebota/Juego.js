@@ -51,7 +51,7 @@ export class Juego{
 
     creacionDeObjetos()
     {
-        this.bola = new Bola("contenedor","circulo",this.limiteVentanaH/2,this.limiteVentanaV/2,50,"black",1,"silver");
+        this.bola = new Bola("contenedor","circulo",this.limiteVentanaH/2,this.limiteVentanaV/2,30,"black",3,"orange");
 
         this.pj1 = new Barra("contenedor","pj1",100,100,0,300,"red",10 );
         this.pj2 = new Barra("contenedor","pj2",this.limiteVentanaH-100,this.limiteVentanaH-100,0,300,"blue",10 );
@@ -60,9 +60,10 @@ export class Juego{
     iniciar()
     {
         document.addEventListener("keydown",(e) => {this.controlMovimiento(e,this.limiteVentanaV,this.limiteVentanaH)});
+
         setInterval(() =>
         { 
-            this.bola.controlImpactoTotal(this.limiteVentanaH,this.limiteVentanaV,4);
+            this.bola.controlImpactoTotal(this.limiteVentanaH,this.limiteVentanaV,6);
 
             if (this.movimpj1) 
             {
