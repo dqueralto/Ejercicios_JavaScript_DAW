@@ -25,11 +25,15 @@ export class Juego{
     controlMovimiento(e)
     {
         
-        if (e.keyCode == 87) 
+        //if (e.keyCode == 87) 
+        if (e.key == 87) 
+
         {
             this.movimpj1 = true;
             console.log("w");
-        } else if (e.keyCode == 83)
+        //} else if (e.keyCode == 83)
+        } else if (e.key == 83)
+
         {
             this.movimpj1 = false;
             console.log("s");
