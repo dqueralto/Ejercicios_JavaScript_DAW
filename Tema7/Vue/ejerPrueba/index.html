@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+
+</head>
+<body>
+    <div id="app">
+        {{message}}{{sp}}{{nombre}}{{sp}}{{apellidos}}
+
+        <ol>
+            <li  v-if='listaVisible' v-for="todo in todos"  v-on:click="delObj(todo.text)" v-bind:style='{backgroundColor: todo.color}'>
+                {{ todo.text }}
+                <p v-on:click="delObj(todo.text)">{{ todo.titulo }}</p>
+            </li>
+        </ol>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+        </br></br>
+        <input v-model="entrada1">
+        <input v-model="entrada2">
+        <button v-on:click="addText">Add Text</button>
+        {{entrada1}}{{entrada2}}
+        </br></br>
+
+        <input v-model="entradaDel">
+        <button v-on:click="">Del Text</button>
+
+    </div>
+
+    <script language="JavaScript" type="text/javascript" src="./miVue.js"></script>
+
+</body>
+</html>

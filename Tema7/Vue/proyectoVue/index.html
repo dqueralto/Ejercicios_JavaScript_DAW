@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <link rel=StyleSheet href="./index.css">
+
+
+</head>
+<body>
+    <div id="app">
+
+        <input type="text" v-model="entrada1">      
+        <button v-on:click="addRecord">Add</button></br></br> 
+
+        <label v-for="(recuerda, index) in recordatorios" v-bind:class="{sub:recuerda.checked}" v-model="chequear()">
+            <input type="checkbox" id="cbox1" value="{{recuerda.text}}" v-model="recuerda.checked" >
+            {{recuerda.text}}</br>
+        </label></br>
+
+
+        <label>Completadas: {{totalcompletadas}} de {{total}}</label></br></br> 
+        <button v-on:click="delCompletadas">Borrar completadas</button></br></br> 
+    </div>
+
+    <script language="JavaScript" type="text/javascript" src="./miVue.js"></script>
+
+</body>
+</html>

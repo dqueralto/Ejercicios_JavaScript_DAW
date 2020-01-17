@@ -1,0 +1,10 @@
+*{
+    color: white;
+    background-color: black;
+}
+
+
+.sub{
+    text-decoration:line-through;
+    color: green;
+}
