@@ -1,7 +1,7 @@
 new Vue({
     el: '#app',
     data:{
-        entrada1:'',
+        texNota:'',
         completadas:[],
         totalcompletadas:0,
         total:0,
@@ -15,8 +15,11 @@ new Vue({
     methods: {
         
         addRecord: function (){
-                this.recordatorios.push({text:this.entrada1,checked:false} );
-                this.entrada1='';
+            if (this.texNota.trim().length !=0) {
+                this.recordatorios.push({text:this.texNota,checked:false} );
+                this.texNota='';
+            }
+
                 
         },
         chequear: function () {
@@ -31,15 +34,30 @@ new Vue({
                 {
                     this.recordatorios.splice(index,1);
                 }
-                this.corregirInfoCompletadas()
+                this.corregirInfoCompletadas();
             }
             
         },
-        delRecord:function (){
-            
+        delRecord:function (obj){
+            if (this.recordatorios.length) 
+            {
+                var index = this.recordatorios.indexOf(obj);
+                if (index > -1) 
+                {
+                    this.total-=1;
+                    if (obj.checked) 
+                    {
+                        this.totalcompletadas-=1;
+                    }
+                    return this.recordatorios.splice(index, 1)
+                }
+                
+            }
+
         },
         corregirInfoCompletadas:function(){
-            if (this.recordatorios.length < 1) {
+            if (this.recordatorios.length < 1) 
+            {
                 this.total = 0;
                 this.totalcompletadas = 0;
             }

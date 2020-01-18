@@ -3,9 +3,9 @@
     background-color: black;
 }
 
-.btDel{
-    text-align: right;
-}
+/*.btDel{
+    margin-right: 0%;
+}*/
 
 
 .sub{
@@ -17,3 +17,4 @@
     border: 1;
     
 }
+

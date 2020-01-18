@@ -22,34 +22,28 @@
 </head>
 <body>
     <div id="app" class="">
-
-        <input type="text" v-model="entrada1">      
-        <button v-on:click="addRecord">Add</button></br></br> 
-        <div  v-for="(recuerda, index) in recordatorios">
-            <table class="w-50"> 
-                <tr>
-                    <td  class=" text-justified border border-white" v-bind:class="{sub:recuerda.checked}" v-model="chequear()">
-                            <input type="checkbox" id="cbox1" value="{{recuerda.text}}" v-model="recuerda.checked" >
-                            {{recuerda.text}}
-                            <button class="btDel btn btn-danger" v-on:click="delRecord">X</button></br>
-                    </td>
-                </tr>
-            </table>
-            <!--<label class="border border-white" v-bind:class="{sub:recuerda.checked}" v-model="chequear()">
-                <input type="checkbox" id="cbox1" value="{{recuerda.text}}" v-model="recuerda.checked" >
-                {{recuerda.text}}
-                <button class="btDel btn btn-danger" v-on:click="delRecord">X</button></br>
-
-            </label></br>-->
-        </div></br>
-        <label>Completadas: {{totalcompletadas}} de {{total}}</label></br></br> 
-        <button class="btDel" v-on:click="delCompletadas">Borrar completadas</button></br>
-
+        <div class="container">
+            <input type="text" size="74" v-model="texNota" v-on:keyup.enter="addRecord">      
+            <button class="btn btn-success" v-on:click="addRecord">+</button></br></br> 
+            <div  v-for="(recuerda, index) in recordatorios">
+                <table class="w-50"> 
+                    <tr>
+                        <td  class=" text-justified border border-white" v-bind:class="{sub:recuerda.checked}" v-model="chequear()">
+                                <input type="checkbox" id="cbox1" value="{{recuerda.text}}" v-model="recuerda.checked" >
+                                {{recuerda.text}}
+                                <button class="btn btn-danger float-right btDel  " v-on:click="delRecord(recuerda)">x</button></br>
+                        </td>
+                    </tr>
+                </table>
+            </div></br>
+            <label>Completadas: {{totalcompletadas}} de {{total}}</label></br></br> 
+            <button class=" btn btn-danger" v-on:click="delCompletadas">Borrar completadas</button></br>
+        </div>
 
        
     </div>
 
-    <script language="JavaScript" type="text/javascript" src="./miVue.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./vue/miVue.js"></script>
 
 </body>
 </html>
