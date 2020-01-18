@@ -16,15 +16,18 @@
 
         <input type="text" v-model="entrada1">      
         <button v-on:click="addRecord">Add</button></br></br> 
+        <div v-for="(recuerda, index) in recordatorios">
+            <label v-bind:class="{sub:recuerda.checked}" v-model="chequear()">
+                <input type="checkbox" id="cbox1" value="{{recuerda.text}}" v-model="recuerda.checked" >
+                {{recuerda.text}}
+                <button class="btDel" v-on:click="delRecord">X</button></br>
 
-        <label v-for="(recuerda, index) in recordatorios" v-bind:class="{sub:recuerda.checked}" v-model="chequear()">
-            <input type="checkbox" id="cbox1" value="{{recuerda.text}}" v-model="recuerda.checked" >
-            {{recuerda.text}}</br>
-        </label></br>
+            </label></br>
+        </div>
+        <button class="btDel" v-on:click="delCompletadas">Borrar completadas</button></br>
 
 
         <label>Completadas: {{totalcompletadas}} de {{total}}</label></br></br> 
-        <button v-on:click="delCompletadas">Borrar completadas</button></br></br> 
     </div>
 
     <script language="JavaScript" type="text/javascript" src="./miVue.js"></script>

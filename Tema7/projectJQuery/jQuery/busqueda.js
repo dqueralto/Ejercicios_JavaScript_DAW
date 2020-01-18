@@ -1,5 +1,5 @@
  
-APIURL='http://www.omdbapi.com/?';
+APIURL='https://www.omdbapi.com/?';
 APIKEI='&apikey=ef2e3108';
 nPag=1
 controlAjax=true;
@@ -8,6 +8,7 @@ function cambiarIMG() {
     $("img").on("error",function (){
         //$(this).attr("src","https://vignette.wikia.nocookie.net/la-bitacora-del-capitan/images/6/67/Not_found.png/revision/latest?cb=20190509042801&path-prefix=es")
         $(this).attr("src"," https://www.clipartwiki.com/clipimg/detail/139-1395875_-emoticones-caritas-kawaii-kawaii-sad-face.png")
+        //$(this).attr("class","w-auto")
 
     });
 }
@@ -128,7 +129,7 @@ function maquetarInfoPelicula(info)
 
     var modal0 = $("<div id='allInfo' class='modal fade bd-example-modal-xl'  tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>");
     var modal1 = $("<div class='modal-dialog modal-xl' role='document'>");
-    var modal2 = $("<div class='  modal-content bg-warning'>");
+    var modal2 = $("<div class='  modal-content ftarg bg-dark'>");
     var header = $("<div class='modal-header'>");
     var titulo = $("<h5 class='modal-title'>"+info.Title+"</h5>");
     var btX = $("<button type='button' class='close' data-dismiss='modal' aria-label='Close'>");
@@ -154,7 +155,7 @@ function maquetarInfoPelicula(info)
 
     let r0 = $("<div class='row'>");
     let c1 = $("<div class='col-6'>");
-    let c2 = $("<div class='col-6''>");
+    let c2 = $("<div class='col-6' >");
     let r1 = $("<div class='row'>");
     let r2 = $("<div class='row'>");
 

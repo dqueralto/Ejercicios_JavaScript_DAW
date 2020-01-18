@@ -33,11 +33,11 @@ new Vue({
                 }
                 
             }
-            for (const iterator of this.recordatorios) {
-                
-            }
             
-    },
+        },
+        delRecord:function (){
+            
+        }
 
     },
 

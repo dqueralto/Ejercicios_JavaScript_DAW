@@ -3,6 +3,10 @@
     background-color: black;
 }
 
+.btDel{
+    text-align: right;
+}
+
 
 .sub{
     text-decoration:line-through;
