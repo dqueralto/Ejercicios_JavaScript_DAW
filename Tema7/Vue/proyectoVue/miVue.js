@@ -31,13 +31,20 @@ new Vue({
                 {
                     this.recordatorios.splice(index,1);
                 }
-                
+                this.corregirInfoCompletadas()
             }
             
         },
         delRecord:function (){
             
+        },
+        corregirInfoCompletadas:function(){
+            if (this.recordatorios.length < 1) {
+                this.total = 0;
+                this.totalcompletadas = 0;
+            }
         }
+
 
     },
 

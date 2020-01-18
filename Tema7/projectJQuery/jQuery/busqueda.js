@@ -138,10 +138,11 @@ function maquetarInfoPelicula(info)
     var footer = $("<div class='modal-footer'>");
     var btClose = $("<button type='button' class='btn btn-secondary' data-dismiss='modal'>Salir</button>");
 
+    var textTitle = $("<h5 >Recomendación</h5>");
 
     var anio = $("<p><b>Año: </b>"+info.Year+"</p>");
     var descripcion = $("<p><b>Descripcion: </b>"+info.Plot+"</p>");
-    var img = $("<img src='"+info.Poster+"' class='' alt='"+info.Title+"'>");
+    var img = $("<img src='"+info.Poster+"' class='w-50' alt='"+info.Title+"'>");
 
     let progresContent = $("<div class='progress'></div></br>");
     let score = parseInt(info.Metascore);
@@ -165,6 +166,7 @@ function maquetarInfoPelicula(info)
     header.append(btX);
     header.append(spah);
 
+    body.append(textTitle);
     body.append(progresContent);
 
     
