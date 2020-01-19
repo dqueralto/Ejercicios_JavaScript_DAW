@@ -22,16 +22,30 @@
 </head>
 <body>
     <div id="app" class="">
-        <div class="container">
-            <input type="text" size="74" v-model="texNota" v-on:keyup.enter="addRecord">      
-            <button class="btn btn-success" v-on:click="addRecord">+</button></br></br> 
-            <div  v-for="(recuerda, index) in recordatorios">
-                <table class="w-50"> 
-                    <tr>
-                        <td  class=" text-justified border border-white" v-bind:class="{sub:recuerda.checked}" v-model="chequear()">
-                                <input type="checkbox" id="cbox1" value="{{recuerda.text}}" v-model="recuerda.checked" >
+        <div class="container border ">
+            <div class="center-block">
+                <input type="text" size="74" v-model="texNota" v-on:keyup.enter="addRecord">      
+                <button class="btn btn-success" v-on:click="addRecord">+</button></br></br> 
+                
+                <table class="w-50 "> 
+                    <tr v-for="(recuerda, index) in recordatorios">
+
+                        <td class=" text-justified border border-white " v-bind:class="{sub:recuerda.checked}" v-model="chequear()">
+                                <input type="checkbox" id="cbox1" value="{{recuerda.text}}" v-model="recuerda.checked" aria-label="Text input with checkbox">
                                 {{recuerda.text}}
                                 <button class="btn btn-danger float-right btDel  " v-on:click="delRecord(recuerda)">x</button></br>
+                                <!--<div class="input-group">
+                                    <div class="input-group-prepend ">
+                                        <div class="input-group-text ">
+                                                <input type="checkbox" id="cbox1" value="{{recuerda.text}}" v-model="recuerda.checked" aria-label="Text input with checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="w-75">
+                                        {{recuerda.text}}
+                                        <button class="btn btn-danger float-right  btDel  " v-on:click="delRecord(recuerda)">x</button>
+                                    </div>
+                                </div>-->
+
                         </td>
                     </tr>
                 </table>
