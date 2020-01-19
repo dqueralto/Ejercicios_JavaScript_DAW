@@ -39,6 +39,7 @@ new Vue({
             this.totalcompletadas = this.recordatorios.filter(function(record){
                 return record.checked == true;
             }).length;
+            //this.saveRecor();
         },
 
         delCompletadas: function (){
@@ -77,6 +78,7 @@ new Vue({
                 this.totalcompletadas = 0;
             }
         },
+        
         saveRecor(){
             const parsed = JSON.stringify(this.recordatorios);
             localStorage.setItem('recordatorios', parsed);
