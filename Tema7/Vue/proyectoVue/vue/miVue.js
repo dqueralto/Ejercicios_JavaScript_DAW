@@ -5,10 +5,10 @@ new Vue({
         completadas:[],
         totalcompletadas:0,
         total:0,
-        recordatorios: [
+        recordatorios: [/*
             { text: 'Esto es una prueba 1',checked:true },
             { text: 'Esto es una prueba 16546546',checked:false},
-            { text: 'Esto es una prueba ∞',checked:false }
+            { text: 'Esto es una prueba ∞',checked:false }*/
         ]
 
     },
@@ -49,6 +49,7 @@ new Vue({
                     this.recordatorios.splice(index,1);
                 }
                 this.corregirInfoCompletadas();
+                this.saveRecor();
             }
             
         },
@@ -64,11 +65,11 @@ new Vue({
                     {
                         this.totalcompletadas-=1;
                     }
-                    return this.recordatorios.splice(index, 1)
+                    this.recordatorios.splice(index, 1);
+                    this.saveRecor();
                 }
                 
             }
-
         },
 
         corregirInfoCompletadas:function(){
@@ -88,10 +89,6 @@ new Vue({
     },
 
     computed: {
-        
-        
+           
     }
-
-
-
 });
