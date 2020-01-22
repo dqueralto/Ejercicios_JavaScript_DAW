@@ -1,16 +1,41 @@
+Vue.component('recordatorio',{
+    props: ['texto','checked'],
+    template:`
+        <td class=" text-justified border border-white " v-bind:class="{sub:recuerda.checked}" v-model="chequear()">
+            <input type="checkbox" id="cbox1" value="{{texto}}" v-model="{{checked}}" aria-label="Text input with checkbox">
+            {{texto}}
+            <button class="btn btn-danger float-right btDel  " v-on:click="delRecord(recuerda)">x</button></br>
+        </td>
+    `,
+});
+
 new Vue({
     el: '#app',
     data:{
         texNota:'',
+        rating: '',
         completadas:[],
         totalcompletadas:0,
         total:0,
-        recordatorios: [/*
+        recordatorios: [
+            /*
             { text: 'Esto es una prueba 1',checked:true },
             { text: 'Esto es una prueba 16546546',checked:false},
-            { text: 'Esto es una prueba ∞',checked:false }*/
+            { text: 'Esto es una prueba ∞',checked:false }
+            */
         ]
 
+    },
+    component:{
+
+    },
+    computed:{
+        ordenarRecordatorios: function () { 
+            return this.recordatorios.sort(this.ordenacion);
+        }
+        
+
+        
     },
 
     mounted() {
@@ -20,18 +45,23 @@ new Vue({
             } catch(e) {
               localStorage.removeItem('recordatorios');
             }
-          }
+        }
     },
 
     methods: {
+        ordenacion:function(a, b) {
+            if (a.text < b.text)
+                return -1;
+            if (a.text > b.text)
+                return 1;
+            return 0;
+        },
         addRecord: function (){
             if (this.texNota.trim().length !=0) {
-                this.recordatorios.push({text:this.texNota,checked:false} );
+                this.recordatorios.push({text:this.texNota,checked:false,prioridad:this.rating} );
                 this.texNota='';
                 this.saveRecor();
             }
-
-                
         },
 
         chequear: function () {
@@ -39,7 +69,6 @@ new Vue({
             this.totalcompletadas = this.recordatorios.filter(function(record){
                 return record.checked == true;
             }).length;
-            //this.saveRecor();
         },
 
         delCompletadas: function (){
@@ -51,7 +80,6 @@ new Vue({
                 this.corregirInfoCompletadas();
                 this.saveRecor();
             }
-            
         },
 
         delRecord:function (obj){
@@ -68,7 +96,6 @@ new Vue({
                     this.recordatorios.splice(index, 1);
                     this.saveRecor();
                 }
-                
             }
         },
 
@@ -79,6 +106,10 @@ new Vue({
                 this.totalcompletadas = 0;
             }
         },
+
+        marcadesmarca:function (obj) {
+            
+        },
         
         saveRecor(){
             const parsed = JSON.stringify(this.recordatorios);
@@ -88,7 +119,7 @@ new Vue({
 
     },
 
-    computed: {
-           
+    updated: function () {
+        this.saveRecor();
     }
 });

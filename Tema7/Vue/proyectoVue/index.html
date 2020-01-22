@@ -24,12 +24,16 @@
     <div id="app" class="">
         <div class="ml-3 ">
             <div class="center-block">
+
                 <input type="text" size="74" v-model="texNota" v-on:keyup.enter="addRecord">      
                 <button class="btn btn-success" v-on:click="addRecord">+</button></br></br> 
-                
-                <table class="w-50 "> 
-                    <tr v-for="(recuerda, index) in recordatorios">
+                <label class="">Filtro:</label>
+                <input type="text" size="71" v-model="rating" v-on:keyup.enter="ordenar">      
 
+                <table class="w-50 "> 
+                    <!--<tr v-for="(recuerda, index) in recordatorios ">-->
+                    <tr v-for="(recuerda, index) in ordenarRecordatorios ">
+                        <!--<recordatorio v-bind:texto="recuerda.text" v-bind:checked="recuerda.checked"></recordatorio>-->
                         <td class=" text-justified border border-white " v-bind:class="{sub:recuerda.checked}" v-model="chequear()">
                                 <input type="checkbox" id="cbox1" value="{{recuerda.text}}" v-model="recuerda.checked" aria-label="Text input with checkbox">
                                 {{recuerda.text}}
@@ -53,11 +57,11 @@
             <label>Completadas: {{totalcompletadas}} de {{total}}</label></br></br> 
             <button class=" btn btn-danger" v-on:click="delCompletadas">Borrar completadas</button></br>
         </div>
-
-       
     </div>
 
     <script language="JavaScript" type="text/javascript" src="./vue/miVue.js"></script>
+
+
 
 </body>
 </html>
