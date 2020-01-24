@@ -1,0 +1,20 @@
+*{
+    color: white;
+    background-color: black;
+}
+
+/*.btDel{
+    margin-right: 0%;
+}*/
+
+
+.sub{
+    text-decoration:line-through;
+    color: green;
+}
+
+.defCajas{
+    border: 1;
+    
+}
+
