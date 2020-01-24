@@ -1,0 +1,54 @@
+
+
+
+
+.loguillo{
+    width: 15%;
+}
+.loguillo img{
+    background-repeat: no-repeat;
+    width: 100%;
+}
+.navegacion{
+    width: 5em;
+}
+
+.cuerpo aside ul{
+    list-style: none;
+    margin-top: 2rem;
+
+}
+.cuerpo aside ul li{
+    height: 3rem;
+
+}
+.carrusel img{
+    width: 99%;
+}
+.cuerpo aside ul li:nth-of-type(odd){
+    background: linear-gradient(to bottom, #499bea 0%, #a6ccf0 5%, #a6ccf0 97%, #207ce5 100%);
+}
+
+.articulos article{
+    border-bottom: 1px solid black;
+}
+.articulos img{
+    background-color: burlywood;
+}
+
+
+
+
+footer .insta{
+    background-repeat: no-repeat;
+    width: 5%;
+}
+footer .face{
+    background-repeat: no-repeat;
+    width: 5%;
+}
+footer .twit{
+    background-repeat: no-repeat;
+    width: 5%;
+    
+}

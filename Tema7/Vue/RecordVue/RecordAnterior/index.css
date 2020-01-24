@@ -22,7 +22,9 @@
     height: 3rem;
 
 }
-
+.carrusel img{
+    width: 99%;
+}
 .cuerpo aside ul li:nth-of-type(odd){
     background: linear-gradient(to bottom, #499bea 0%, #a6ccf0 5%, #a6ccf0 97%, #207ce5 100%);
 }
