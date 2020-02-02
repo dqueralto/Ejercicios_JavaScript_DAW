@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <Cabecera></Cabecera>
+
+  <keep-alive> <!--Mantiene vivo un componente-->
+    <router-view></router-view>
+  </keep-alive>
+
 
   </div>
 </template>
 
 <script>
-import Cabecera from './components/Cabecera.vue'
-//import Lista from './components/Lista.vue'
+  
 
 export default {
   name: 'app',
   components: {
-    Cabecera
+
+
+
     
   }
 }
@@ -22,12 +25,12 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  /*font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   background-color: rgb(186, 224, 17);
-  margin-top: 60px;
+  margin-top: 60px;*/
 }
 </style>

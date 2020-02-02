@@ -18,6 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <link rel=StyleSheet href="../css/recordatorios.css">
 
+
 </head>
 <body>
     <div id="app" class="">
@@ -31,7 +32,7 @@
 
                 <table class="w-50 "> 
                     <!--<tr v-for="(recuerda, index) in recordatorios ">-->
-                    <tr v-for="(recuerda, index) in ordenarRecordatorios ">
+                    <tr v-for="(recuerda, index) in ordenarRecordatorios " >
                         <!--<recordatorio v-bind:texto="recuerda.text" v-bind:checked="recuerda.checked"></recordatorio>-->
                         <td class=" text-justified border border-white " v-bind:class="{sub:recuerda.checked}" v-model="chequear()">
                                 <input type="checkbox" id="cbox1" value="{{recuerda.text}}" v-model="recuerda.checked" aria-label="Text input with checkbox">
